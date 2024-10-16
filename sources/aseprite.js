@@ -84,7 +84,7 @@ class Aseprite {
 
     /**
      * Stores the sprites by tags.
-     * @type {Object.<T, Array<Sprite>>}
+     * @type {Map.<T, Array<Sprite>>}
      * @private
      */
     $tags;
@@ -129,11 +129,11 @@ class Aseprite {
             });
         });
 
-        this.$tags = {};
+        this.$tags = new Map();
 
         $data.meta.frameTags.forEach(($tag) => {
 
-            this.$tags[$tag.name] = this.$sprites.slice($tag.from, $tag.to + 1);
+            this.$tags.set($tag.name, this.$sprites.slice($tag.from, $tag.to + 1));
         });
     }
 
@@ -191,19 +191,19 @@ class Aseprite {
      */
     getTag($tag) {
 
-        const tagnames = Object.keys(this.$tags);
-
-        if (tagnames.length === 0) {
+        if (this.$tags.size === 0) {
 
             return [];
         }
 
-        if (tagnames.indexOf($tag) === -1) {
+        if (this.$tags.has($tag) === false) {
 
-            return this.$tags[tagnames[0]];
+            const first = Array.from(this.$tags.keys())[0];
+
+            return this.$tags.get(first);
         }
 
-        return this.$tags[$tag];
+        return this.$tags.get($tag);
     }
 }
 
