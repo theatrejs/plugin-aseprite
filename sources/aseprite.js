@@ -1,4 +1,4 @@
-import {AABB, Actor, Sprite, Timeline, TimelineKeyframe, Vector2} from '@theatrejs/theatrejs';
+import {AABB, Sprite, Vector2} from '@theatrejs/theatrejs';
 
 /**
  * Creates Aseprite module managers.
@@ -7,7 +7,7 @@ import {AABB, Actor, Sprite, Timeline, TimelineKeyframe, Vector2} from '@theatre
  * @example
  *
  * const aseprite = new Aseprite(textureColor, data);
- * aseprite.createTimeline({actor, framerate, loop, tag});
+ * aseprite.getSprites(tag);
  */
 class Aseprite {
 
@@ -76,15 +76,15 @@ class Aseprite {
      */
 
     /**
-     * Stores the sprites.
-     * @type {Array<Sprite>}
+     * Stores the sprites and their duration.
+     * @type {Map<Sprite, number>}
      * @private
      */
     $sprites;
 
     /**
-     * Stores the sprites by tags.
-     * @type {Map.<T, Array<Sprite>>}
+     * Stores the sprites and their duration by tags.
+     * @type {Map.<T, Map<Sprite, number>>}
      * @private
      */
     $tags;
@@ -115,9 +115,11 @@ class Aseprite {
 
         this.$textureColor = $textureColor;
 
-        this.$sprites = $data.frames.map(($frame) => {
+        this.$sprites = new Map();
 
-            return new Sprite({
+        $data.frames.forEach(($frame) => {
+
+            const sprite = new Sprite({
 
                 $frameSource: new AABB(
 
@@ -127,73 +129,32 @@ class Aseprite {
                 $sizeTarget: new Vector2($frame.frame.w, $frame.frame.h),
                 $textureColor: $textureColor
             });
+
+            this.$sprites.set(sprite, $frame.duration);
         });
 
         this.$tags = new Map();
 
         $data.meta.frameTags.forEach(($tag) => {
 
-            this.$tags.set($tag.name, this.$sprites.slice($tag.from, $tag.to + 1));
+            const subset = Array.from(this.$sprites.entries())
+            .slice($tag.from, $tag.to + 1);
+
+            this.$tags.set($tag.name, new Map(subset));
         });
     }
 
     /**
-     * Creates a timeline for the given actor with the given tag.
-     * @param {Object} $parameters The given parameters.
-     * @param {Actor} $parameters.$actor The given actor.
-     * @param {number} [$parameters.$framerate] The number of timeline keyframes to show per second.
-     * @param {boolean} [$parameters.$loop] The loop status.
-     * @param {T} $parameters.$tag The given tag.
-     * @returns {Timeline}
-     * @public
-     */
-    createTimeline({$actor, $framerate = 8, $loop = false, $tag}) {
-
-        const $tags = this.getTag($tag);
-
-        if ($tags.length === 0) {
-
-            return new Timeline();
-        }
-
-        const keyframes = this.getTag($tag).map(($sprite, $index) => {
-
-            return new TimelineKeyframe({
-
-                $onEnter: () => {
-
-                    $actor.setSprite($sprite);
-                },
-                $timecode: $index * 1000 / $framerate
-            });
-        });
-
-        if ($loop === true) {
-
-            keyframes.push(new TimelineKeyframe({
-
-                $onEnter: ($timeline) => {
-
-                    $timeline.seekTimecode(0);
-                },
-                $timecode: keyframes.length * 1000 / $framerate
-            }));
-        }
-
-        return new Timeline(keyframes);
-    }
-
-    /**
-     * Gets the sprites for the given tag.
+     * Gets the sprites and their duration for the given tag.
      * @param {T} $tag The given tag.
-     * @returns {Array<Sprite>}
+     * @returns {Map<Sprite, number>}
      * @public
      */
-    getTag($tag) {
+    getSprites($tag) {
 
         if (this.$tags.size === 0) {
 
-            return [];
+            return new Map();
         }
 
         if (this.$tags.has($tag) === false) {
