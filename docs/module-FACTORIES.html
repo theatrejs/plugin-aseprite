@@ -31,7 +31,7 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aseprite.html">Aseprite</a><ul class='methods'><li data-type='method'><a href="Aseprite.html#createTimeline">createTimeline</a></li><li data-type='method'><a href="Aseprite.html#getTag">getTag</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-FACTORIES.html">FACTORIES</a><ul class='methods'><li data-type='method'><a href="module-FACTORIES.html#.PreloadableAseprite">PreloadableAseprite</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aseprite.html">Aseprite</a><ul class='methods'><li data-type='method'><a href="Aseprite.html#getSprites">getSprites</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-FACTORIES.html">FACTORIES</a><ul class='methods'><li data-type='method'><a href="module-FACTORIES.html#.ActorWithSpritesheet">ActorWithSpritesheet</a></li><li data-type='method'><a href="module-FACTORIES.html#.PreloadableAseprite">PreloadableAseprite</a></li></ul></li></ul>
     
 </nav>
 
@@ -86,6 +86,268 @@
 
     
 
+    <h4 class="name" id=".ActorWithSpritesheet"><span class="type-signature type-signature-static">(static) </span>ActorWithSpritesheet<span class="signature">($parameters)</span><span class="type-signature"> &rarr; {Class.&lt;Actor>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Prepares an actor with spritesheet.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="factories.js.html">factories.js</a>, <a href="factories.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The given parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$aseprite</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Aseprite.html">Aseprite</a>.&lt;T></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The aseprite module manager.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$loop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The loop status.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$tag</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">T</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The given tag.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Class.&lt;Actor></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".PreloadableAseprite"><span class="type-signature type-signature-static">(static) </span>PreloadableAseprite<span class="signature">($aseprite)</span><span class="type-signature"> &rarr; {Class.&lt;Preloadable>}</span></h4>
 
     
@@ -102,7 +364,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="factories.js.html">factories.js</a>, <a href="factories.js.html#line16">line 16</a>
+        <a href="factories.js.html">factories.js</a>, <a href="factories.js.html#line112">line 112</a>
     </li></ul></dd>
     
 
@@ -255,7 +517,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Wed Oct 16 2024 20:13:46 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sat Oct 19 2024 22:55:12 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

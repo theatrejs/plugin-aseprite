@@ -31,7 +31,7 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aseprite.html">Aseprite</a><ul class='methods'><li data-type='method'><a href="Aseprite.html#createTimeline">createTimeline</a></li><li data-type='method'><a href="Aseprite.html#getTag">getTag</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-FACTORIES.html">FACTORIES</a><ul class='methods'><li data-type='method'><a href="module-FACTORIES.html#.PreloadableAseprite">PreloadableAseprite</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aseprite.html">Aseprite</a><ul class='methods'><li data-type='method'><a href="Aseprite.html#getSprites">getSprites</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-FACTORIES.html">FACTORIES</a><ul class='methods'><li data-type='method'><a href="module-FACTORIES.html#.ActorWithSpritesheet">ActorWithSpritesheet</a></li><li data-type='method'><a href="module-FACTORIES.html#.PreloadableAseprite">PreloadableAseprite</a></li></ul></li></ul>
     
 </nav>
 
@@ -134,7 +134,7 @@
     <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>const aseprite = new Aseprite(textureColor, data);
-aseprite.createTimeline({actor, framerate, loop, tag});</code></pre>
+aseprite.getSprites(tag);</code></pre>
 
 
 
@@ -338,7 +338,7 @@ aseprite.createTimeline({actor, framerate, loop, tag});</code></pre>
 
     
 
-    <h4 class="name" id="createTimeline"><span class="type-signature"></span>createTimeline<span class="signature">($parameters)</span><span class="type-signature"> &rarr; {Timeline}</span></h4>
+    <h4 class="name" id="getSprites"><span class="type-signature"></span>getSprites<span class="signature">($tag)</span><span class="type-signature"> &rarr; {Map.&lt;Sprite, number>}</span></h4>
 
     
 
@@ -348,309 +348,13 @@ aseprite.createTimeline({actor, framerate, loop, tag});</code></pre>
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Creates a timeline for the given actor with the given tag.</li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li>Gets the sprites and their duration for the given tag.</li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aseprite.js.html">aseprite.js</a>, <a href="aseprite.js.html#line150">line 150</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5 class="h5-parameters">Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>$parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The given parameters.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>$parameters.$actor</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Actor</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The given actor.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>$parameters.$framerate</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The number of timeline keyframes to show per second.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>$parameters.$loop</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The loop status.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>$parameters.$tag</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">T</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The given tag.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5 class="h5-returns">Returns:</h5>
-
-        
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Timeline</span>
-
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="getTag"><span class="type-signature"></span>getTag<span class="signature">($tag)</span><span class="type-signature"> &rarr; {Array.&lt;Sprite>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-    
-    <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li>Gets the sprites for the given tag.</li></ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="aseprite.js.html">aseprite.js</a>, <a href="aseprite.js.html#line192">line 192</a>
+        <a href="aseprite.js.html">aseprite.js</a>, <a href="aseprite.js.html#line153">line 153</a>
     </li></ul></dd>
     
 
@@ -772,7 +476,7 @@ aseprite.createTimeline({actor, framerate, loop, tag});</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">Array.&lt;Sprite></span>
+<span class="param-type">Map.&lt;Sprite, number></span>
 
 
 
@@ -2127,7 +1831,7 @@ aseprite.createTimeline({actor, framerate, loop, tag});</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Wed Oct 16 2024 20:13:46 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sat Oct 19 2024 22:55:12 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
