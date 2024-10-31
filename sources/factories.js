@@ -10,7 +10,7 @@ import {Aseprite} from './index.js';
  * Prepares an actor with spritesheet.
  * @template {string} T The generic type of the tags.
  * @param {Object} $parameters The given parameters.
- * @param {Aseprite<T>} $parameters.$aseprite The aseprite module manager.
+ * @param {Aseprite<T>} $parameters.$aseprite The Aseprite module manager.
  * @param {boolean} [$parameters.$loop] The loop status.
  * @param {T} $parameters.$tag The given tag.
  * @returns {typeof Actor}
@@ -123,7 +123,7 @@ function PreloadableAseprite($aseprite) {
          * @static
          */
         static preloadables = [$aseprite.textureColor];
-    };
+    }
 
     return PreloadableAseprite;
 }
