@@ -59,3 +59,57 @@ class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.P
     }
 }
 ```
+
+## Actor With Text
+
+```javascript
+import {FACTORIES} from '@theatrejs/theatrejs';
+import * as PLUGINASEPRITE from '@theatrejs/plugin-aseprite';
+
+import asepriteDataFont from './font-16.json';
+import asepriteTextureFont from './font-16.png';
+
+const asepriteFont = new PLUGINASEPRITE.Aseprite(asepriteTextureFont, asepriteDataFont);
+
+class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.PreloadableAseprite(asepriteFont)]) {
+    onCreate() {
+        this.createActor(
+            PLUGINASEPRITE.FACTORIES.ActorWithText({
+                $font: asepriteFont,
+                $text:
+                'First line of text.\n' +
+                'Second line of text.'
+            })
+        );
+    }
+}
+```
+
+## Actor With Text (Advanced Options)
+
+```javascript
+import {FACTORIES} from '@theatrejs/theatrejs';
+import * as PLUGINASEPRITE from '@theatrejs/plugin-aseprite';
+
+import asepriteDataFont from './font-16.json';
+import asepriteTextureFont from './font-16.png';
+
+const asepriteFont = new PLUGINASEPRITE.Aseprite(asepriteTextureFont, asepriteDataFont);
+
+class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.PreloadableAseprite(asepriteFont)]) {
+    onCreate() {
+        this.createActor(
+            PLUGINASEPRITE.FACTORIES.ActorWithText({
+                $align: 'left',
+                $anchor: 'center',
+                $font: asepriteFont,
+                $heightLines: 16,
+                $spacingCharacters: 1,
+                $text:
+                'First line of text.\n' +
+                'Second line of text.'
+            })
+        );
+    }
+}
+```
