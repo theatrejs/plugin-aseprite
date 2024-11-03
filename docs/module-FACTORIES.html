@@ -31,7 +31,7 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aseprite.html">Aseprite</a><ul class='methods'><li data-type='method'><a href="Aseprite.html#getSprites">getSprites</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-FACTORIES.html">FACTORIES</a><ul class='methods'><li data-type='method'><a href="module-FACTORIES.html#.ActorWithSpritesheet">ActorWithSpritesheet</a></li><li data-type='method'><a href="module-FACTORIES.html#.PreloadableAseprite">PreloadableAseprite</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aseprite.html">Aseprite</a><ul class='methods'><li data-type='method'><a href="Aseprite.html#getSprites">getSprites</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-FACTORIES.html">FACTORIES</a><ul class='methods'><li data-type='method'><a href="module-FACTORIES.html#.ActorWithSpritesheet">ActorWithSpritesheet</a></li><li data-type='method'><a href="module-FACTORIES.html#.ActorWithText">ActorWithText</a></li><li data-type='method'><a href="module-FACTORIES.html#.PreloadableAseprite">PreloadableAseprite</a></li></ul></li></ul>
     
 </nav>
 
@@ -233,7 +233,7 @@
 
             
 
-            <td class="description last">The aseprite module manager.</td>
+            <td class="description last">The Aseprite module manager.</td>
         </tr>
 
     
@@ -348,6 +348,400 @@
 
     
 
+    <h4 class="name" id=".ActorWithText"><span class="type-signature type-signature-static">(static) </span>ActorWithText<span class="signature">($parameters)</span><span class="type-signature"> &rarr; {Class.&lt;Actor>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Prepares an actor with text.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="factories.js.html">factories.js</a>, <a href="factories.js.html#line118">line 118</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The given parameters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$align</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">'center'</span>
+|
+
+<span class="param-type">'left'</span>
+|
+
+<span class="param-type">'right'</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The horizontal alignment.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$anchor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">'bottom'</span>
+|
+
+<span class="param-type">'bottom-left'</span>
+|
+
+<span class="param-type">'bottom-right'</span>
+|
+
+<span class="param-type">'center'</span>
+|
+
+<span class="param-type">'left'</span>
+|
+
+<span class="param-type">'right'</span>
+|
+
+<span class="param-type">'top'</span>
+|
+
+<span class="param-type">'top-left'</span>
+|
+
+<span class="param-type">'top-right'</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The anchor position.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$font</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Aseprite.html">Aseprite</a>.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The Aseprite module manager of the font (with the Aseprite tags corresponding to the characters used in the text).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$heightLines</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The height of the lines.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$spacingCharacters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The spacing between the characters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>$parameters.$text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The text to use (with '\n' being a special character controlling the carriage return).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Class.&lt;Actor></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".PreloadableAseprite"><span class="type-signature type-signature-static">(static) </span>PreloadableAseprite<span class="signature">($aseprite)</span><span class="type-signature"> &rarr; {Class.&lt;Preloadable>}</span></h4>
 
     
@@ -364,7 +758,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="factories.js.html">factories.js</a>, <a href="factories.js.html#line112">line 112</a>
+        <a href="factories.js.html">factories.js</a>, <a href="factories.js.html#line377">line 377</a>
     </li></ul></dd>
     
 
@@ -517,7 +911,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sat Oct 19 2024 22:55:12 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Sun Nov 03 2024 13:29:14 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
