@@ -159,7 +159,6 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
 
                     const sprites = Array.from($font.getSprites($character));
 
-                    const heightCharacter = Math.max(...sprites.map(([$sprite]) => ($sprite.sizeTarget.y)));
                     const widthCharacter = Math.max(...sprites.map(([$sprite]) => ($sprite.sizeTarget.x)));
 
                     widthRow += widthCharacter;
@@ -167,7 +166,6 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
                     return {
 
                         $character: $character,
-                        $heightCharacter: heightCharacter,
                         $widthCharacter: widthCharacter
                     };
                 });
@@ -299,7 +297,9 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
                     }
                 }
 
-                $row.forEach(({$character, $heightCharacter, $widthCharacter}) => {
+                top -= $heightLines;
+
+                $row.forEach(({$character, $widthCharacter}) => {
 
                     const character = this.stage.createActor(
 
@@ -312,7 +312,7 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
                     )
                     .setVisible(this.visible)
                     .setZIndex(this.zIndex)
-                    .translate(new Vector2(left + Math.ceil($widthCharacter / 2), top + Math.ceil($heightCharacter / 2)));
+                    .translate(new Vector2(left + Math.ceil($widthCharacter / 2), top + Math.ceil($heightLines / 2)));
 
                     this.$characters.push(character);
 
@@ -320,7 +320,6 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
                 });
 
                 left = anchorLeft;
-                top -= $heightLines;
             });
         }
 
