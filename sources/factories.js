@@ -13,7 +13,7 @@ import {Aseprite} from './index.js';
  * @param {Aseprite<T>} $parameters.$aseprite The Aseprite module manager.
  * @param {boolean} [$parameters.$loop] The loop status.
  * @param {T} $parameters.$tag The given tag.
- * @returns {typeof Actor}
+ * @returns {typeof Actor<string, string>}
  *
  * @memberof module:FACTORIES
  */
@@ -111,7 +111,7 @@ function ActorWithSpritesheet({$aseprite, $loop = false, $tag}) {
  * @param {number} [$parameters.$heightLines] The height of the lines.
  * @param {number} [$parameters.$spacingCharacters] The spacing between the characters.
  * @param {string} $parameters.$text The text to use (with '\n' being a special character controlling the carriage return).
- * @returns {typeof Actor}
+ * @returns {typeof Actor<string, string>}
  *
  * @memberof module:FACTORIES
  */
