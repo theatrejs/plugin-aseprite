@@ -9,19 +9,12 @@ import {Aseprite} from './index.js';
  * @example
  *
  * const spritesheet = new Spritesheet(aseprite);
- * spritesheet.animate({$tag, $loop, $onFrame});
+ * spritesheet.animate(tag, loop);
  * spritesheet.tick(timetick);
+ *
+ * const sprite = spritesheet.sprite;
  */
 class Spritesheet {
-
-    /**
-     * @callback typehandlerframe A handler called when a frame is being entered.
-     * @param {Sprite} $sprite The sprite of the frame entered.
-     * @returns {void}
-     * @protected
-     *
-     * @memberof Spritesheet
-     */
 
     /**
      * Stores the Aseprite module manager.
@@ -31,11 +24,28 @@ class Spritesheet {
     $aseprite;
 
     /**
+     * Stores the current sprite.
+     * @type {Sprite}
+     * @private
+     */
+    $sprite;
+
+    /**
      * Stores the timeline.
      * @type {Timeline}
      * @private
      */
     $timeline;
+
+    /**
+     * Gets the current sprite.
+     * @type {Sprite}
+     * @public
+     */
+    get sprite() {
+
+        return this.$sprite;
+    }
 
     /**
      * Creates a new Aseprite spritesheet.
@@ -48,13 +58,11 @@ class Spritesheet {
 
     /**
      * Animates an Aseprite tag.
-     * @param {Object} $parameters The given parameters.
-     * @param {boolean} [$parameters.$loop] The loop status.
-     * @param {typehandlerframe} $parameters.$onFrame Called when a frame is being entered.
-     * @param {T} $parameters.$tag The given tag.
+     * @param {T} $tag The given tag.
+     * @param {boolean} [$loop] The loop status.
      * @public
      */
-    animate({$loop = true, $onFrame, $tag}) {
+    animate($tag, $loop = true) {
 
         const sprites = this.$aseprite.getSprites($tag);
 
@@ -71,7 +79,7 @@ class Spritesheet {
 
                 $onEnter: () => {
 
-                    $onFrame($sprite);
+                    this.$sprite = $sprite;
                 },
                 $timecode: timecode
             });

@@ -39,15 +39,7 @@ function ActorWithSpritesheet({$aseprite, $loop = true, $tag}) {
 
             this.$spritesheet = new Spritesheet(/** @type {Aseprite<T>} **/($aseprite));
 
-            this.$spritesheet.animate({
-
-                $loop: $loop,
-                $onFrame: ($sprite) => {
-
-                    this.setSprite($sprite);
-                },
-                $tag: $tag,
-            });
+            this.$spritesheet.animate($tag, $loop);
         }
 
         /**
@@ -58,6 +50,11 @@ function ActorWithSpritesheet({$aseprite, $loop = true, $tag}) {
         onTick($timetick) {
 
             this.$spritesheet.tick($timetick);
+
+            if (this.sprite !== this.$spritesheet.sprite) {
+
+                this.setSprite(this.$spritesheet.sprite);
+            }
         }
     }
 
