@@ -54,6 +54,8 @@ class Spritesheet {
     constructor($aseprite) {
 
         this.$aseprite = $aseprite;
+
+        this.$timeline = new Timeline();
     }
 
     /**
@@ -68,7 +70,7 @@ class Spritesheet {
 
         if (sprites.size === 0) {
 
-            return new Timeline();
+            return;
         }
 
         let timecode = 0;
