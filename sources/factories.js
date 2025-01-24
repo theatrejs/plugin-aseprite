@@ -1,6 +1,6 @@
-import {Actor, Preloadable, Timeline, TimelineKeyframe, Vector2} from '@theatrejs/theatrejs';
+import {Actor, Preloadable, Vector2} from '@theatrejs/theatrejs';
 
-import {Aseprite} from './index.js';
+import {Aseprite, Spritesheet} from './index.js';
 
 /**
  * @module FACTORIES
@@ -17,7 +17,7 @@ import {Aseprite} from './index.js';
  *
  * @memberof module:FACTORIES
  */
-function ActorWithSpritesheet({$aseprite, $loop = false, $tag}) {
+function ActorWithSpritesheet({$aseprite, $loop = true, $tag}) {
 
     /**
      * @ignore
@@ -25,58 +25,11 @@ function ActorWithSpritesheet({$aseprite, $loop = false, $tag}) {
     class ActorWithSpritesheet extends Actor {
 
         /**
-         * Stores the timeline.
-         * @type {Timeline}
+         * Stores the Aseprite spritesheet.
+         * @type {Spritesheet<T>}
          * @private
          */
-        $timeline;
-
-        /**
-         * Creates the timeline.
-         * @returns {Timeline}
-         * @private
-         */
-        $createTimeline() {
-
-            const sprites = $aseprite.getSprites($tag);
-
-            if (sprites.size === 0) {
-
-                return new Timeline();
-            }
-
-            let timecode = 0;
-
-            const keyframes = Array.from(sprites.entries()).map(([$sprite, $duration]) => {
-
-                const timelinekeyframe = new TimelineKeyframe({
-
-                    $onEnter: () => {
-
-                        this.setSprite($sprite);
-                    },
-                    $timecode: timecode
-                });
-
-                timecode += $duration;
-
-                return timelinekeyframe;
-            });
-
-            if ($loop === true) {
-
-                keyframes.push(new TimelineKeyframe({
-
-                    $onEnter: ($timeline) => {
-
-                        $timeline.seekTimecode(0);
-                    },
-                    $timecode: timecode
-                }));
-            }
-
-            return new Timeline(keyframes);
-        }
+        $spritesheet;
 
         /**
          * Called when the actor is being created.
@@ -84,8 +37,17 @@ function ActorWithSpritesheet({$aseprite, $loop = false, $tag}) {
          */
         onCreate() {
 
-            this.$timeline = this.$createTimeline();
-            this.$timeline.seekTimecode(0);
+            this.$spritesheet = new Spritesheet(/** @type {Aseprite<T>} **/($aseprite));
+
+            this.$spritesheet.animate({
+
+                $loop: $loop,
+                $onFrame: ($sprite) => {
+
+                    this.setSprite($sprite);
+                },
+                $tag: $tag,
+            });
         }
 
         /**
@@ -95,7 +57,7 @@ function ActorWithSpritesheet({$aseprite, $loop = false, $tag}) {
          */
         onTick($timetick) {
 
-            this.$timeline.tick($timetick);
+            this.$spritesheet.tick($timetick);
         }
     }
 
