@@ -4,7 +4,7 @@ import {Aseprite} from './index.js';
 
 /**
  * Creates Aseprite spritesheets.
- * @template {string} T The generic type of the tags.
+ * @template {string} TypeGeneric The generic type of the tags.
  *
  * @example
  *
@@ -18,7 +18,7 @@ class Spritesheet {
 
     /**
      * Stores the Aseprite module manager.
-     * @type {Aseprite<T>}
+     * @type {Aseprite<TypeGeneric>}
      * @private
      */
     $aseprite;
@@ -49,7 +49,7 @@ class Spritesheet {
 
     /**
      * Creates a new Aseprite spritesheet.
-     * @param {Aseprite<T>} $aseprite The Aseprite module manager.
+     * @param {Aseprite<TypeGeneric>} $aseprite The Aseprite module manager.
      */
     constructor($aseprite) {
 
@@ -60,7 +60,7 @@ class Spritesheet {
 
     /**
      * Animates an Aseprite tag.
-     * @param {T} $tag The given tag.
+     * @param {TypeGeneric} $tag The given tag.
      * @param {boolean} [$loop] The loop status.
      * @public
      */

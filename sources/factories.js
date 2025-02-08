@@ -8,11 +8,11 @@ import {Aseprite, Spritesheet} from './index.js';
 
 /**
  * Prepares an actor with spritesheet.
- * @template {string} T The generic type of the tags.
+ * @template {string} TypeGeneric The generic type of the tags.
  * @param {Object} $parameters The given parameters.
- * @param {Aseprite<T>} $parameters.$aseprite The Aseprite module manager.
+ * @param {Aseprite<TypeGeneric>} $parameters.$aseprite The Aseprite module manager.
  * @param {boolean} [$parameters.$loop] The loop status.
- * @param {T} $parameters.$tag The given tag.
+ * @param {TypeGeneric} $parameters.$tag The given tag.
  * @returns {typeof Actor<string, string>}
  *
  * @memberof module:FACTORIES
@@ -26,7 +26,7 @@ function ActorWithSpritesheet({$aseprite, $loop = true, $tag}) {
 
         /**
          * Stores the Aseprite spritesheet.
-         * @type {Spritesheet<T>}
+         * @type {Spritesheet<TypeGeneric>}
          * @private
          */
         $spritesheet;
@@ -37,7 +37,7 @@ function ActorWithSpritesheet({$aseprite, $loop = true, $tag}) {
          */
         onCreate() {
 
-            this.$spritesheet = new Spritesheet(/** @type {Aseprite<T>} **/($aseprite));
+            this.$spritesheet = new Spritesheet(/** @type {Aseprite<TypeGeneric>} **/($aseprite));
 
             this.$spritesheet.animate($tag, $loop);
         }

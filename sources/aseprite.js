@@ -2,7 +2,7 @@ import {AABB, Sprite, Vector2} from '@theatrejs/theatrejs';
 
 /**
  * Creates Aseprite module managers.
- * @template {string} T The generic type of the tags.
+ * @template {string} TypeGeneric The generic type of the tags.
  *
  * @example
  *
@@ -12,64 +12,64 @@ import {AABB, Sprite, Vector2} from '@theatrejs/theatrejs';
 class Aseprite {
 
     /**
-     * @template {string} T The generic type of the tags.
-     * @typedef {Object} typeaseprite An Aseprite JSON data.
-     * @property {Array<typeasepriteframe>} typeaseprite.frames The Aseprite JSON frames data.
-     * @property {typeasepritemeta<T>} typeaseprite.meta The Aseprite JSON meta data.
+     * @template {string} TypeGeneric The generic type of the tags.
+     * @typedef {Object} TypeAseprite An Aseprite JSON data.
+     * @property {Array<TypeAsepriteFrame>} TypeAseprite.frames The Aseprite JSON frames data.
+     * @property {TypeAsepriteMeta<TypeGeneric>} TypeAseprite.meta The Aseprite JSON meta data.
      * @protected
      *
      * @memberof Aseprite
      */
 
     /**
-     * @typedef {Object} typeasepriteframe An Aseprite JSON frame data.
-     * @property {number} typeasepriteframe.duration The duration.
-     * @property {string} typeasepriteframe.filename The file name.
-     * @property {Object} typeasepriteframe.frame The frame.
-     * @property {number} typeasepriteframe.frame.x The x position of the frame.
-     * @property {number} typeasepriteframe.frame.y The y position of the frame.
-     * @property {number} typeasepriteframe.frame.w The width of the frame.
-     * @property {number} typeasepriteframe.frame.h The height of the frame.
-     * @property {boolean} typeasepriteframe.rotated The rotated status.
-     * @property {Object} typeasepriteframe.spriteSourceSize The sprite source size.
-     * @property {number} typeasepriteframe.spriteSourceSize.x The x position of the sprite source.
-     * @property {number} typeasepriteframe.spriteSourceSize.y The y position of the sprite source.
-     * @property {number} typeasepriteframe.spriteSourceSize.w The width of the sprite source.
-     * @property {number} typeasepriteframe.spriteSourceSize.h The height of the sprite source.
-     * @property {Object} typeasepriteframe.sourceSize The sprite size.
-     * @property {number} typeasepriteframe.sourceSize.w The width of the source.
-     * @property {number} typeasepriteframe.sourceSize.h The height of the source.
-     * @property {boolean} typeasepriteframe.trimmed The trimmed status.
+     * @typedef {Object} TypeAsepriteFrame An Aseprite JSON frame data.
+     * @property {number} TypeAsepriteFrame.duration The duration.
+     * @property {string} TypeAsepriteFrame.filename The file name.
+     * @property {Object} TypeAsepriteFrame.frame The frame.
+     * @property {number} TypeAsepriteFrame.frame.x The x position of the frame.
+     * @property {number} TypeAsepriteFrame.frame.y The y position of the frame.
+     * @property {number} TypeAsepriteFrame.frame.w The width of the frame.
+     * @property {number} TypeAsepriteFrame.frame.h The height of the frame.
+     * @property {boolean} TypeAsepriteFrame.rotated The rotated status.
+     * @property {Object} TypeAsepriteFrame.spriteSourceSize The sprite source size.
+     * @property {number} TypeAsepriteFrame.spriteSourceSize.x The x position of the sprite source.
+     * @property {number} TypeAsepriteFrame.spriteSourceSize.y The y position of the sprite source.
+     * @property {number} TypeAsepriteFrame.spriteSourceSize.w The width of the sprite source.
+     * @property {number} TypeAsepriteFrame.spriteSourceSize.h The height of the sprite source.
+     * @property {Object} TypeAsepriteFrame.sourceSize The sprite size.
+     * @property {number} TypeAsepriteFrame.sourceSize.w The width of the source.
+     * @property {number} TypeAsepriteFrame.sourceSize.h The height of the source.
+     * @property {boolean} TypeAsepriteFrame.trimmed The trimmed status.
      * @protected
      *
      * @memberof Aseprite
      */
 
     /**
-     * @template {string} T The generic type of the tags.
-     * @typedef {Object} typeasepritemeta An Aseprite JSON meta data.
-     * @property {string} typeasepritemeta.app The app meta data.
-     * @property {string} typeasepritemeta.format The format meta data.
-     * @property {string} typeasepritemeta.image The image meta data.
-     * @property {string} typeasepritemeta.scale The scale meta data.
-     * @property {Object} typeasepritemeta.size The size meta data.
-     * @property {number} typeasepritemeta.size.w The size width meta data.
-     * @property {number} typeasepritemeta.size.h The size height meta data.
-     * @property {string} typeasepritemeta.version The version meta data.
-     * @property {Array<typeasepriteframetag<T>>} typeasepritemeta.frameTags The Aseprite JSON tags meta data.
+     * @template {string} TypeGeneric The generic type of the tags.
+     * @typedef {Object} TypeAsepriteMeta An Aseprite JSON meta data.
+     * @property {string} TypeAsepriteMeta.app The app meta data.
+     * @property {string} TypeAsepriteMeta.format The format meta data.
+     * @property {string} TypeAsepriteMeta.image The image meta data.
+     * @property {string} TypeAsepriteMeta.scale The scale meta data.
+     * @property {Object} TypeAsepriteMeta.size The size meta data.
+     * @property {number} TypeAsepriteMeta.size.w The size width meta data.
+     * @property {number} TypeAsepriteMeta.size.h The size height meta data.
+     * @property {string} TypeAsepriteMeta.version The version meta data.
+     * @property {Array<TypeAsepriteFrameTag<TypeGeneric>>} TypeAsepriteMeta.frameTags The Aseprite JSON tags meta data.
      * @protected
      *
      * @memberof Aseprite
      */
 
     /**
-     * @template {string} T The generic type of the tags.
-     * @typedef {Object} typeasepriteframetag An Aseprite JSON tag meta data.
-     * @property {T} typeasepriteframetag.name The name.
-     * @property {number} typeasepriteframetag.from The first frame.
-     * @property {number} typeasepriteframetag.to The last frame.
-     * @property {string} typeasepriteframetag.direction The animation direction.
-     * @property {string} typeasepriteframetag.color The color.
+     * @template {string} TypeGeneric The generic type of the tags.
+     * @typedef {Object} TypeAsepriteFrameTag An Aseprite JSON tag meta data.
+     * @property {TypeGeneric} TypeAsepriteFrameTag.name The name.
+     * @property {number} TypeAsepriteFrameTag.from The first frame.
+     * @property {number} TypeAsepriteFrameTag.to The last frame.
+     * @property {string} TypeAsepriteFrameTag.direction The animation direction.
+     * @property {string} TypeAsepriteFrameTag.color The color.
      * @protected
      *
      * @memberof Aseprite
@@ -84,7 +84,7 @@ class Aseprite {
 
     /**
      * Stores the sprites and their duration by tags.
-     * @type {Map.<T, Map<Sprite, number>>}
+     * @type {Map.<TypeGeneric, Map<Sprite, number>>}
      * @private
      */
     $tags;
@@ -109,7 +109,7 @@ class Aseprite {
     /**
      * Creates a new Aseprite module manager.
      * @param {string} $textureColor The color texture source.
-     * @param {typeaseprite<T>} $data The Aseprite JSON file.
+     * @param {TypeAseprite<TypeGeneric>} $data The Aseprite JSON data.
      */
     constructor($textureColor, $data) {
 
@@ -146,7 +146,7 @@ class Aseprite {
 
     /**
      * Gets the sprites and their duration for the given tag.
-     * @param {T} $tag The given tag.
+     * @param {TypeGeneric} $tag The given tag.
      * @returns {Map<Sprite, number>}
      * @public
      */
