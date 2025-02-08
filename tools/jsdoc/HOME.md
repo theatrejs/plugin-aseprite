@@ -16,17 +16,17 @@ npm install @theatrejs/plugin-aseprite --save
 
 ```javascript
 import {Stage} from '@theatrejs/theatrejs';
-import * as PLUGINASEPRITE from '@theatrejs/plugin-aseprite';
+import * as PLUGIN_ASEPRITE from '@theatrejs/plugin-aseprite';
 
 import asepriteDataHero from './hero-16x16.json';
 import asepriteTextureHero from './hero-16x16.png';
 
-const asepriteHero = new PLUGINASEPRITE.Aseprite(asepriteTextureHero, asepriteDataHero);
+const asepriteHero = new PLUGIN_ASEPRITE.Aseprite(asepriteTextureHero, asepriteDataHero);
 
 class Level1 extends Stage {
     onCreate() {
         this.createActor(
-            PLUGINASEPRITE.FACTORIES.ActorWithSpritesheet({
+            PLUGIN_ASEPRITE.FACTORIES.ActorWithSpritesheet({
                 $aseprite: asepriteHero,
                 $loop: true,
                 $tag: 'idle'
@@ -40,17 +40,17 @@ class Level1 extends Stage {
 
 ```javascript
 import {FACTORIES} from '@theatrejs/theatrejs';
-import * as PLUGINASEPRITE from '@theatrejs/plugin-aseprite';
+import * as PLUGIN_ASEPRITE from '@theatrejs/plugin-aseprite';
 
 import asepriteDataHero from './hero-16x16.json';
 import asepriteTextureHero from './hero-16x16.png';
 
-const asepriteHero = new PLUGINASEPRITE.Aseprite(asepriteTextureHero, asepriteDataHero);
+const asepriteHero = new PLUGIN_ASEPRITE.Aseprite(asepriteTextureHero, asepriteDataHero);
 
-class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.PreloadableAseprite(asepriteHero)]) {
+class Level1 extends FACTORIES.StageWithPreloadables([PLUGIN_ASEPRITE.FACTORIES.PreloadableAseprite(asepriteHero)]) {
     onCreate() {
         this.createActor(
-            PLUGINASEPRITE.FACTORIES.ActorWithSpritesheet({
+            PLUGIN_ASEPRITE.FACTORIES.ActorWithSpritesheet({
                 $aseprite: asepriteHero,
                 $loop: true,
                 $tag: 'idle'
@@ -64,17 +64,17 @@ class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.P
 
 ```javascript
 import {FACTORIES} from '@theatrejs/theatrejs';
-import * as PLUGINASEPRITE from '@theatrejs/plugin-aseprite';
+import * as PLUGIN_ASEPRITE from '@theatrejs/plugin-aseprite';
 
 import asepriteDataFont from './font-16.json';
 import asepriteTextureFont from './font-16.png';
 
-const asepriteFont = new PLUGINASEPRITE.Aseprite(asepriteTextureFont, asepriteDataFont);
+const asepriteFont = new PLUGIN_ASEPRITE.Aseprite(asepriteTextureFont, asepriteDataFont);
 
-class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.PreloadableAseprite(asepriteFont)]) {
+class Level1 extends FACTORIES.StageWithPreloadables([PLUGIN_ASEPRITE.FACTORIES.PreloadableAseprite(asepriteFont)]) {
     onCreate() {
         this.createActor(
-            PLUGINASEPRITE.FACTORIES.ActorWithText({
+            PLUGIN_ASEPRITE.FACTORIES.ActorWithText({
                 $font: asepriteFont,
                 $text:
                 'First line of text.\n' +
@@ -89,17 +89,17 @@ class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.P
 
 ```javascript
 import {FACTORIES} from '@theatrejs/theatrejs';
-import * as PLUGINASEPRITE from '@theatrejs/plugin-aseprite';
+import * as PLUGIN_ASEPRITE from '@theatrejs/plugin-aseprite';
 
 import asepriteDataFont from './font-16.json';
 import asepriteTextureFont from './font-16.png';
 
-const asepriteFont = new PLUGINASEPRITE.Aseprite(asepriteTextureFont, asepriteDataFont);
+const asepriteFont = new PLUGIN_ASEPRITE.Aseprite(asepriteTextureFont, asepriteDataFont);
 
-class Level1 extends FACTORIES.StageWithPreloadables([PLUGINASEPRITE.FACTORIES.PreloadableAseprite(asepriteFont)]) {
+class Level1 extends FACTORIES.StageWithPreloadables([PLUGIN_ASEPRITE.FACTORIES.PreloadableAseprite(asepriteFont)]) {
     onCreate() {
         this.createActor(
-            PLUGINASEPRITE.FACTORIES.ActorWithText({
+            PLUGIN_ASEPRITE.FACTORIES.ActorWithText({
                 $align: 'left',
                 $anchor: 'center',
                 $font: asepriteFont,
