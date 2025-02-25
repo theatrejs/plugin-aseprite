@@ -345,7 +345,7 @@ function PreloadableAseprite($aseprite) {
          * @public
          * @static
          */
-        static preloadables = [$aseprite.textureColor];
+        static preloadables = [$aseprite.texture];
     }
 
     return PreloadableAseprite;
