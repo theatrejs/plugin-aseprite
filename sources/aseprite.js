@@ -6,7 +6,7 @@ import {AABB, Sprite, Vector2} from '@theatrejs/theatrejs';
  *
  * @example
  *
- * const aseprite = new Aseprite(textureColor, data);
+ * const aseprite = new Aseprite(texture, data);
  * aseprite.getSprites(tag);
  */
 class Aseprite {
@@ -90,30 +90,30 @@ class Aseprite {
     $tags;
 
     /**
-     * Stores the color texture source.
+     * Stores the texture source.
      * @type {string}
      * @private
      */
-    $textureColor;
+    $texture;
 
     /**
-     * Gets the color texture source.
+     * Gets the texture source.
      * @type {string}
      * @public
      */
-    get textureColor() {
+    get texture() {
 
-        return this.$textureColor;
+        return this.$texture;
     }
 
     /**
      * Creates a new Aseprite module manager.
-     * @param {string} $textureColor The color texture source.
+     * @param {string} $texture The texture source.
      * @param {TypeAseprite<TypeGeneric>} $data The Aseprite JSON data.
      */
-    constructor($textureColor, $data) {
+    constructor($texture, $data) {
 
-        this.$textureColor = $textureColor;
+        this.$texture = $texture;
 
         this.$sprites = new Map();
 
@@ -127,7 +127,7 @@ class Aseprite {
                     new Vector2(($frame.frame.x + $frame.frame.w) / $data.meta.size.w, ($frame.frame.y + $frame.frame.h) / $data.meta.size.h)
                 ),
                 $sizeTarget: new Vector2($frame.frame.w, $frame.frame.h),
-                $textureColor: $textureColor
+                $texture: $texture
             });
 
             this.$sprites.set(sprite, $frame.duration);
