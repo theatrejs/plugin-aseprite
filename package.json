@@ -39,7 +39,7 @@
     "name": "@theatrejs/plugin-aseprite",
     "peerDependencies": {
 
-        "@theatrejs/theatrejs": ">= 1.20.0"
+        "@theatrejs/theatrejs": ">= 1.28.0"
     },
     "repository": {
 

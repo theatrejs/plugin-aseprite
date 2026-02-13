@@ -82,31 +82,10 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
     class ActorWithText extends Actor {
 
         /**
-         * Stores the characters.
-         * @type {Array<Actor>}
-         * @private
-         */
-        $characters;
-
-        /**
-         * Called just before removing the actor.
-         * @public
-         */
-        onBeforeRemove() {
-
-            [...this.$characters].forEach(($characters) => {
-
-                this.stage.removeActor($characters);
-            });
-        }
-
-        /**
          * Called when the actor is being created.
          * @public
          */
         onCreate() {
-
-            this.$characters = [];
 
             let widthText = 0;
 
@@ -260,7 +239,7 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
 
                 $row.forEach(({$character, $widthCharacter}) => {
 
-                    const character = this.stage.createActor(
+                    this.stage.createActor(
 
                         ActorWithSpritesheet({
 
@@ -271,53 +250,13 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
                     )
                     .setVisible(this.visible)
                     .setZIndex(this.zIndex)
-                    .translate(new Vector2(left + Math.ceil($widthCharacter / 2), top + Math.ceil($heightLines / 2)));
-
-                    this.$characters.push(character);
+                    .translate(new Vector2(left + Math.ceil($widthCharacter / 2), top + Math.ceil($heightLines / 2)))
+                    .mimic(this);
 
                     left += $spacingCharacters + $widthCharacter;
                 });
 
                 left = anchorLeft;
-            });
-        }
-
-        /**
-         * Called when the visible status is being set.
-         * @param {boolean} $visible The visible status set.
-         * @public
-         */
-        onSetVisible($visible) {
-
-            this.$characters.forEach(($character) => {
-
-                $character.setVisible($visible);
-            });
-        }
-
-        /**
-         * Called when the z-index is being set.
-         * @param {number} $zIndex The z-index set.
-         * @public
-         */
-        onSetZIndex($zIndex) {
-
-            this.$characters.forEach(($character) => {
-
-                $character.setZIndex($zIndex);
-            });
-        }
-
-        /**
-         * Called when the actor is being translated.
-         * @param {Vector2} $vector The translation applied.
-         * @public
-         */
-        onTranslate($vector) {
-
-            this.$characters.forEach(($character) => {
-
-                $character.translate($vector);
             });
         }
     }
