@@ -248,6 +248,7 @@ function ActorWithText({$align = 'left', $anchor = 'center', $font, $heightLines
                             $tag: $character
                         })
                     )
+                    .attachMask(this.mask)
                     .setVisible(this.visible)
                     .setZIndex(this.zIndex)
                     .translate(new Vector2(left + Math.ceil($widthCharacter / 2), top + Math.ceil($heightLines / 2)))
